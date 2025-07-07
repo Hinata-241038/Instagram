@@ -5,8 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続設定
     $host = 'localhost';
     $dbname = 'login_system';
-    $db_user = 'eastisland';   // ←適宜変更してください
-    $db_pass = '123456';   // ←適宜変更してください
+    $db_user = 'murakami';   // ←適宜変更してください
+    $db_pass = '8701177';   // ←適宜変更してください
 
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
