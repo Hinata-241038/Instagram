@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // パスワードをハッシュ化（本番環境では password_hash/verify を推奨）
-    $hashed_password = hash('sha256', '8701177');
+    $hashed_password = hash('sha256', $password);
 
     $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
     $stmt = $pdo->prepare($sql);
