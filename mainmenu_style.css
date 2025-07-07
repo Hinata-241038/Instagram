@@ -1,0 +1,100 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #262626;
+}
+
+.container {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #262626;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; 
+}
+
+.upload-button {
+    display: block; 
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    text-align: center; 
+    box-sizing: border-box; 
+}
+
+.upload-button:hover {
+    background-color: #007bb5;
+}
+
+.upload-button .icon {
+    margin-right: 10px;
+    font-size: 20px;
+    vertical-align: middle; 
+}
+
+.file-name {
+    display: block; 
+    margin-top: 10px;
+    font-size: 14px;
+    color: #8e8e8e;
+    text-align: center;
+}
+
+textarea {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical; 
+    min-height: 100px;
+    box-sizing: border-box; 
+    margin-bottom: 20px; 
+}
+
+textarea::placeholder {
+    color: #8e8e8e;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #007bb5;
+}

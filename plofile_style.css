@@ -1,0 +1,140 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 935px; /* Instagramの一般的なコンテンツ幅 */
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.profile-header {
+    display: flex;
+    margin-bottom: 44px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start; /* アバターと情報を上部に揃える */
+    width: 100%;
+}
+
+.profile-avatar-container {
+    flex-basis: 30%; /* アバター用のスペースを割り当てる */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px; /* アバターと統計の間のスペース */
+}
+
+.profile-avatar {
+    width: 150px; /* アバターのサイズ */
+    height: 150px;
+    border-radius: 50%; /* 円形にする */
+    object-fit: cover; /* 画像が領域をカバーするようにする */
+    border: 1px solid #dbdbdb; /* 定義のためのわずかな境界線 */
+}
+
+.profile-stats {
+    flex-basis: 70%; /* 統計と自己紹介のスペースを割り当てる */
+}
+
+.profile-stats h1 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.stats-numbers {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 16px;
+}
+
+.stats-numbers div {
+    margin-right: 40px;
+}
+
+.stats-numbers strong {
+    font-weight: 600;
+}
+
+.profile-bio {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.profile-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列 */
+    gap: 28px; /* グリッドアイテム間のスペース */
+}
+
+.post-item {
+    position: relative;
+    padding-bottom: 100%; /* 正方形のアスペクト比を作成 */
+    overflow: hidden;
+}
+
+.post-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像が正方形をカバーするようにする */
+    border: 1px solid #efefef;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-avatar-container {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .profile-stats h1 {
+        margin-top: 0;
+    }
+
+    .stats-numbers {
+        justify-content: center;
+        flex-wrap: wrap; /* 小さい画面で統計が折り返すことを許可 */
+    }
+
+    .stats-numbers div {
+        margin: 0 15px;
+    }
+
+    .profile-posts-grid {
+        grid-template-columns: repeat(2, 1fr); /* 小さい画面で2列 */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-posts-grid {
+        grid-template-columns: 1fr; /* 非常に小さい画面で1列 */
+    }
+}
