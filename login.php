@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db_pass = '8701177';   // ←適宜変更してください
 
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", 'murakami', '8701177');
     } catch (PDOException $e) {
         exit('DB接続エラー: ' . $e->getMessage());
     }
