@@ -1,3 +1,42 @@
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // DB接続設定
+    $host = 'localhost';
+    $dbname = 'login_system';
+    $db_user = 'eastisland';   // ←適宜変更してください
+    $db_pass = '123456';   // ←適宜変更してください
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
+    } catch (PDOException $e) {
+        exit('DB接続エラー: ' . $e->getMessage());
+    }
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // パスワードをハッシュ化（本番環境では password_hash/verify を推奨）
+    $hashed_password = hash('sha256', $password);
+
+    $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $hashed_password);
+    $stmt->execute();
+
+    $user = $stmt->fetch();
+    
+    if ($user) {
+        $_SESSION['username'] = $username;
+        header('Location: main_menu.php');
+        exit;
+    } else {
+        $error = "ユーザ名またはパスワードが間違っています。";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
