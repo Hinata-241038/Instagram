@@ -11,10 +11,16 @@
         <?php
         session_start();
 
+        // ログインしていない場合はログインページへリダイレクト
+        if (!isset($_SESSION['user_id'])) { // user_idをセッションに保存するように変更
+            header('Location: login.php');
+            exit();
+        }
+
         // データベース接続 (実際の認証情報に置き換えてください)
         $servername = "localhost";
         $username = "root"; //あなたのデータベースのユーザー名
-        $password = ""; 
+        $password = "";
         $dbname = "user_information"; // あなたのデータベース名
 
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,7 +29,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $current_user_id = 1;
+        $current_user_id = $_SESSION['user_id']; // セッションから現在のユーザーIDを取得
         
         // フォームがPOST送信された場合の処理
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
