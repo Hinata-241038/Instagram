@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php /*if (!empty($error)): ?>
             <p style="color: red;"><?php echo $error; ?></p>
         <?php endif;*/ ?>
-        <form action="#" method="post">
+        <form action="mainmenu.php" method="post">
             <div class="form-group">
                 <label for="username">ユーザーネーム</label>
                 <input type="text" id="username" name="username" required>
