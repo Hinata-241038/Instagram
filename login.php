@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($user) {
         $_SESSION['username'] = $username;
-        header('Location: main_menu.php');
+        header('Location: mainmenu.php');
         exit;
     } else {
         $error = "ユーザ名またはパスワードが間違っています。";
