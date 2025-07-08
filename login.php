@@ -1,6 +1,9 @@
 <?php
 session_start();
  
+// エラーメッセージを初期化
+$error = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続設定
     $host = 'localhost';
@@ -10,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // エラーモードを設定
     } catch (PDOException $e) {
         exit('DB接続エラー: ' . $e->getMessage());
     }
@@ -20,22 +24,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // パスワードをハッシュ化（本番環境では password_hash/verify を推奨）
     $hashed_password = hash('sha256', $password);
  
-    $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+    $sql = "SELECT id, username FROM users WHERE username = :username AND password = :password"; // idも取得するように変更
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $hashed_password);
     $stmt->execute();
  
-    $user = $stmt->fetch();
-   
+    $user = $stmt->fetch(PDO::FETCH_ASSOC); // 連想配列として取得
+
     if ($user) {
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $user['username']; // データベースから取得したユーザー名を使用
         $_SESSION['user_id'] = $user['id']; // ユーザーのIDをセッションに保存
         header('Location: mainmenu.php');
         exit;
     } else {
         $error = "ユーザ名またはパスワードが間違っています。";
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -48,6 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <h2>ログイン画面</h2>
+        <?php if (!empty($error)): ?>
+            <p style="color: red;"><?php echo $error; ?></p>
+        <?php endif; ?>
         <form action="#" method="post">
             <div class="form-group">
                 <label for="username">ユーザーネーム</label>
@@ -65,4 +73,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
- 
