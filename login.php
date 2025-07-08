@@ -47,29 +47,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン画面</title>
-    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>ログイン画面</h2>
-        <?php /*if (!empty($error)): ?>
-            <p style="color: red;"><?php echo $error; ?></p>
-        <?php endif;*/ ?>
+    <div class="login-box">
+        <h2>Login</h2>
         <form action="mainmenu.php" method="post">
-            <div class="form-group">
-                <label for="username">ユーザーネーム</label>
-                <input type="text" id="username" name="username" required>
+            <div class="user-box">
+                <input type="text" name="username" required>
+                <label>ユーザー名</label>
             </div>
-            <div class="form-group">
-                <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" required>
+            <div class="user-box">
+                <input type="password" name="password" required>
+                <label>パスワード</label>
             </div>
-            <div class="button-group">
+            <center>
                 <button type="submit" class="login-button">ログイン</button>
-                <a href="#" class="register-button">新規登録</a>
-            </div>
+            </center>
         </form>
     </div>
 </body>
