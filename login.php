@@ -22,8 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
  
     // パスワードをハッシュ化（本番環境では password_hash/verify を推奨）
-    $hashed_password = hash('sha256', $password);
- 
+    $hashed_password = echo hash('sha256', $password);
+    exit;
+
     $sql = "SELECT id, username FROM users WHERE username = :username AND password = :password"; // idも取得するように変更
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':username', $username);
@@ -53,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <h2>ログイン画面</h2>
-        <?php if (!empty($error)): ?>
+        <?php /*if (!empty($error)): ?>
             <p style="color: red;"><?php echo $error; ?></p>
-        <?php endif; ?>
+        <?php endif;*/ ?>
         <form action="#" method="post">
             <div class="form-group">
                 <label for="username">ユーザーネーム</label>
