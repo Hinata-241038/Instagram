@@ -6,7 +6,7 @@ $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続設定
-    $host = 'localhost';
+    $host = '%';
     $dbname = 'user_information';
     $db_user = 'murakami';   // ←適宜変更してください
     $db_pass = '8701177';   // ←適宜変更してください
