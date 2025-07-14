@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost'; // // あなたの環境に合わせて変更
     $dbname = 'user_information'; // // あなたのDB名
     $db_user = 'murakami';   // // DB接続用ユーザー名 (phpMyAdminで設定したユーザー)
-    $db_pass = '8701177';   // // DB接続用パスワード (phpMyAdminで設定したユーザーのパスワード)
+    $db_pass = '12345-';   // // DB接続用パスワード (phpMyAdminで設定したユーザーのパスワード)
  
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass); //
