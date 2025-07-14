@@ -6,7 +6,7 @@ $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続設定
-    $host = '%';
+    $host = 'localhost';
     $dbname = 'user_information';
     $db_user = 'murakami';   // ←適宜変更してください
     $db_pass = '8701177';   // ←適宜変更してください
@@ -48,12 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>ログイン画面</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <form action="mainmenu.php" method="post">
+        <form action="login.php" method="post">
             <div class="user-box">
                 <input type="text" name="username" required>
                 <label>ユーザー名</label>
