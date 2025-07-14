@@ -19,8 +19,8 @@
 
         // データベース接続 (実際の認証情報に置き換えてください)
         $servername = "localhost";
-        $username = "root"; //あなたのデータベースのユーザー名
-        $password = "";
+        $username = "murakami"; //あなたのデータベースのユーザー名
+        $password = "8701177";
         $dbname = "user_information"; // あなたのデータベース名
 
         $conn = new mysqli($servername, $username, $password, $dbname);
