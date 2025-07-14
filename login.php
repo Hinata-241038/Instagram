@@ -1,7 +1,7 @@
 <?php
 session_start();
  
-
+$error = "";
 
 // PHPエラー表示設定（デバッグ時のみ推奨、本番環境ではオフにするかログに出力）
 ini_set('display_errors', 1); //
