@@ -1,8 +1,7 @@
 <?php
 session_start();
  
-// エラーメッセージを初期化
-$error = "";
+
 
 // PHPエラー表示設定（デバッグ時のみ推奨、本番環境ではオフにするかログに出力）
 ini_set('display_errors', 1); //
@@ -12,15 +11,18 @@ error_reporting(E_ALL); //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // DB接続設定
     // ホスト名が localhost なら 'localhost' または '127.0.0.1' にする
-    $host = 'localhost'; // // あなたの環境に合わせて変更
-    $dbname = 'user_information'; // // あなたのDB名
-    $db_user = 'murakami';   // // DB接続用ユーザー名 (phpMyAdminで設定したユーザー)
-    $db_pass = '8701177';   // // DB接続用パスワード (phpMyAdminで設定したユーザーのパスワード)
+    $host = 'localhost'; // あなたの環境に合わせて変更
+    $dbname = 'user_information'; // あなたのDB名
+    $db_user = 'murakami';   // DB接続用ユーザー名 (phpMyAdminで設定したユーザー)
+    // ★★★ここを、phpMyAdminでmurakami@localhostユーザーに設定したパスワードに修正します★★★
+    $db_pass = '8701177';   // 
+    // 例: $db_pass = 'myDBUserPass123'; 
  
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass); //
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // エラーモードを設定
     } catch (PDOException $e) {
+        // DB接続エラーが発生した場合、このメッセージが表示されます
         exit('DB接続エラー: ' . $e->getMessage()); //
     }
  
@@ -40,13 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ここでpassword_verify()を使用
     if ($user && password_verify($password_input, $user['password'])) { //
         // ログイン成功！
-        $_SESSION['username'] = $user['username']; //
-        $_SESSION['user_id'] = $user['id']; //
+        $_SESSION['username'] = $user['username']; // データベースから取得したユーザー名を使用
+        $_SESSION['user_id'] = $user['id']; // ユーザーのIDをセッションに保存
         header('Location: mainmenu.php'); // ログイン成功後のリダイレクト先
         exit; //
     } else {
         // ログイン失敗
-        $error = "ユーザ名またはパスワードが間違っています。"; //
+        $error = "パスワードが間違っています。"; // エラーメッセージを修正
     }
 }
 ?>
