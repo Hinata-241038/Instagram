@@ -98,6 +98,28 @@ body {
     border: 1px solid #efefef;
 }
 
+.nav-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
     .container {

@@ -31,6 +31,12 @@
             <?php
             session_start(); // セッション開始
 
+            // ログインしていなければ login.php にリダイレクト
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit;
+}
+
             // データベース接続 (ここから下は変更なしでOK)
             $servername = "localhost";
             $password = "";
@@ -107,6 +113,11 @@
             $conn->close();
             ?>
         </div>
+        <!-- ナビゲーションボタン -->
+    <div class="nav-buttons">
+        <a href="mainmenu.php" class="nav-button">戻る</a>
+        <a href="login.php" class="nav-button">ホーム</a>
+    </div>
     </div>
 </body>
 </html>
