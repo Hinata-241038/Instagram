@@ -1,20 +1,22 @@
 <?php
 session_start();
- 
+
 // DB接続
-$dsn = 
-"mysql:host=localhost;dbname=user_information;charset=utf8mb4";
+$dsn = "mysql:host=localhost;dbname=user_information;charset=utf8mb4";
 $db_user = "root";
 $db_pass = "";
     try {
-        $pdo = new PDO($dsn, $db_user,$db_pass); //
+        $pdo = new PDO($dsn, $db_user,$db_pass);
     } catch (PDOException $e) {
         die("DB接続失敗:".$e->getMessage());
     }
+
 // ログイン処理
-if ($_SERVER["REQUEST_METHOD"]==="PSOT") {
-    $username = $POST["username"]??"";
-    $password = $POST["password"]??"";
+// 1. POSTメソッドのスペルミスを修正
+if ($_SERVER["REQUEST_METHOD"]==="POST") {
+    // 2. $_POST変数のスペルミスを修正
+    $username = $_POST["username"]??"";
+    $password = $_POST["password"]??"";
 
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$username]);
@@ -36,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"]==="PSOT") {
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
-    <link rel="stylesheet" href="login_style.css"> 
+    <link rel="stylesheet" href="login_style.css">
 </head>
 <body>
     <div class="login-container">
@@ -47,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"]==="PSOT") {
         <input type="text" name="username" required>
     </div>
     <div class="form-group">
+    <label>パスワード</label>
+    <input type="password" name="password" required>
 </div>
 <?php if(!empty($error)): ?>
     <p class= "error-message" style = "display:block;"><?=htmlspecialchars($error)?></p>

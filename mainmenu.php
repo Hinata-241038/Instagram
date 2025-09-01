@@ -1,15 +1,10 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-
     header("Location: login.php");
-
     exit;
-
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -20,7 +15,7 @@ if (!isset($_SESSION["user_id"])) {
 </head>
 <body>
 <div class="container">
-<h1>ようこそ <?= htmlspecialchars($_SESSION["username"]) ?> さん</h1>
+<h1>ようこそ <?= htmlspecialchars($_SESSION["username"], ENT_QUOTES, 'UTF-8') ?> さん</h1>
 <form method="post" action="upload.php" enctype="multipart/form-data">
 <div class="form-group">
 <textarea name="caption" placeholder="キャプションを入力..."></textarea>
@@ -31,5 +26,3 @@ if (!isset($_SESSION["user_id"])) {
 </div>
 </body>
 </html>
-
- 
