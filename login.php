@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
 
     if ($username === $valid_username && $password === $valid_password) {
         // セッションに保存して遷移
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["username"] = $user["username"];
+        $_SESSION["user_id"] = 1;
+        $_SESSION["username"] = $valid_username;
         header("Location: mainmenu.php");
         exit;
     } else {
