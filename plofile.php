@@ -116,7 +116,6 @@ if (!isset($_SESSION["user_id"])) {
         <!-- ナビゲーションボタン -->
     <div class="nav-buttons">
         <a href="mainmenu.php" class="nav-button">戻る</a>
-        <a href="login.php" class="nav-button">ホーム</a>
     </div>
     </div>
 </body>
