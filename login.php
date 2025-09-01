@@ -47,8 +47,6 @@ if ($_SERVER["REQUEST_METHOD"]==="PSOT") {
         <input type="text" name="username" required>
     </div>
     <div class="form-group">
-    <label>パスワード</label>
-    <input type="password" name = "password" required>
 </div>
 <?php if(!empty($error)): ?>
     <p class= "error-message" style = "display:block;"><?=htmlspecialchars($error)?></p>
