@@ -3,7 +3,7 @@ session_start();
  
 // DB接続
 $dsn = 
-"mysql:host=localhost;dbname=insta?app;charset=utf8mb4";
+"mysql:host=localhost;dbname=user_information;charset=utf8mb4";
 $db_user = "root";
 $db_pass = "";
     try {
