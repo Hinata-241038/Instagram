@@ -23,6 +23,14 @@ if (!isset($_SESSION["user_id"])) {
 <input type="file" name="image">
 <button type="submit" class="upload-button">投稿する</button>
 </form>
+
+<!-- ナビゲーションボタン -->
+    <div class="menu-buttons">
+        <a href="login.php" class="menu-button">ログアウト</a>
+        <a href="look.php" class="menu-button">みんなの投稿</a>
+        <a href="plofile.php" class="menu-button">マイプロフィール</a>
+    </div>
+
 </div>
 </body>
 </html>
