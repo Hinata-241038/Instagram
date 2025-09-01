@@ -26,7 +26,7 @@ if (!isset($_SESSION["user_id"])) {
 
 <!-- ナビゲーションボタン -->
     <div class="menu-buttons">
-        <a href="login.php" class="menu-button">ログアウト</a>
+        <a href="logout.php" class="menu-button">ログアウト</a>
         <a href="look.php" class="menu-button">みんなの投稿</a>
         <a href="plofile.php" class="menu-button">マイプロフィール</a>
     </div>
