@@ -66,7 +66,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
             $current_posts_user_id = $user_id; 
 
             // ユーザーのプロフィール情報を取得
-            $stmt_profile = $conn->prepare("SELECT name, user_name, gender, self_introduction, link FROM profile WHERE user_name = ?"); 
+            $stmt_profile = $conn->prepare("SELECT name, id, user_id, self_introduction, avatar_path, created_at, update_at FROM profile_1 WHERE user_name = ?"); 
             $stmt_profile->bind_param("s", $current_profile_user_name); 
             $stmt_profile->execute();
             $result_profile = $stmt_profile->get_result();
