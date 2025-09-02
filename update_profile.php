@@ -23,7 +23,7 @@ $new_bio = $_POST['bio'];
 $new_avatar_path = "";
 
 // 現在のプロフィール情報を取得して、古いアバターパスを確認
-$stmt_get_avatar = $conn->prepare("SELECT avatar_path FROM profile WHERE user_name = ?");
+$stmt_get_avatar = $conn->prepare("SELECT avatar_path FROM profile_1 WHERE user_name = ?");
 $stmt_get_avatar->bind_param("s", $username);
 $stmt_get_avatar->execute();
 $result_get_avatar = $stmt_get_avatar->get_result();

@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 $current_bio = "";
 $current_avatar_url = "placeholder_avatar.jpg";
 
-$stmt = $conn->prepare("SELECT self_introduction, avatar_path FROM profile WHERE user_name = ?");
+$stmt = $conn->prepare("SELECT self_introduction, avatar_path FROM profile_1 WHERE user_name = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
