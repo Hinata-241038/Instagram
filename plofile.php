@@ -14,7 +14,7 @@
                     <img src="<?php echo htmlspecialchars(isset($profile_avatar_url) ? $profile_avatar_url : 'placeholder_avatar.jpg'); ?>" alt="アカウントアイコン" class="profile-avatar">
                 </div>
                 <div class="profile-stats">
-                    <h1><?php echo htmlspecialchars(isset($user_name) ? $user_name : 'ユーザー名が見つかりません'); ?></h1>
+                    <h1><?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?></h1>
                     <div class="stats-numbers">
                         <div><strong><?php echo htmlspecialchars(isset($post_count) ? $post_count : 0); ?></strong> 投稿</div>
                         <div><strong>500</strong> フォロワー</div>
