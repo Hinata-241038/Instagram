@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
         <?php endif; ?>
         <div class = "button-group">
             <button type = "submit" class = "login-button">ログイン</button>
-            <a href="register.php" class = "register-button">新規登録></a>
+            <a href="register.php" class = "register-button">新規登録</a>
             </div>
         </form>
     </div>
