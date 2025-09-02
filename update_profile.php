@@ -23,7 +23,7 @@ $new_bio = $_POST['bio'];
 $new_avatar_path = "";
 
 // 現在のプロフィール情報を取得して、古いアバターパスを確認
-$stmt_get_profile = $conn->prepare("SELECT id, avatar_path FROM profile_1 WHERE user_name = ?");
+$stmt_get_profile = $conn->prepare("SELECT id, avatar_path FROM profile_1 WHERE id = ?");
 $stmt_get_profile->bind_param("s", $username);
 $stmt_get_profile->execute();
 $result_get_profile = $stmt_get_profile->get_result();
@@ -64,7 +64,7 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
 // データベースにプロフィール情報を保存または更新
 if ($profile_exists) {
     // 既存のプロフィールを更新
-    $stmt_update = $conn->prepare("UPDATE profile SET self_introduction = ?, avatar_path = ? WHERE user_name = ?");
+    $stmt_update = $conn->prepare("UPDATE profile_1 SET self_introduction = ?, avatar_path = ? WHERE id = ?");
     $stmt_update->bind_param("sss", $new_bio, $new_avatar_path, $username);
 
     if ($stmt_update->execute()) {
@@ -76,7 +76,7 @@ if ($profile_exists) {
     $stmt_update->close();
 } else {
     // プロフィールを新規作成
-    $stmt_insert = $conn->prepare("INSERT INTO profile (user_id, user_name, self_introduction, avatar_path) VALUES (?, ?, ?, ?)");
+    $stmt_insert = $conn->prepare("INSERT INTO profile_1 (user_id, id, self_introduction, avatar_path) VALUES (?, ?, ?, ?)");
     $stmt_insert->bind_param("isss", $user_id, $username, $new_bio, $new_avatar_path);
 
     if ($stmt_insert->execute()) {
