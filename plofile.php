@@ -39,6 +39,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
             </div>
         </header>
 
+<form action="delete_posts.php" method="post" onsubmit="return confirm('選択した投稿を本当に削除しますか？');">
 <div class="profile-posts-grid">
 <?php
             // データベース接続
@@ -88,7 +89,8 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
             $stmt_posts_count->close();
 
             // データベースから投稿を取得（現在のユーザーの投稿のみ）
-            $stmt_posts = $conn->prepare("SELECT image_path, caption FROM posts WHERE user_id = ? ORDER BY created_at DESC");
+            // ★ idカラムも取得するように変更
+            $stmt_posts = $conn->prepare("SELECT id, image_path, caption FROM posts WHERE user_id = ? ORDER BY created_at DESC");
             $stmt_posts->bind_param("i", $current_posts_user_id);
             $stmt_posts->execute();
             $result = $stmt_posts->get_result();
@@ -96,6 +98,8 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<div class='post-item'>";
+                    // ★ チェックボックスを追加
+                    echo "<input type='checkbox' name='post_ids[]' value='" . $row['id'] . "' class='delete-checkbox'>";
                     echo "<img src='" . htmlspecialchars($row["image_path"]) . "' alt='投稿画像'>";
                     if (!empty($row["caption"])) {
                         echo "<div class='post-caption'>" . nl2br(htmlspecialchars($row["caption"])) . "</div>";
@@ -110,7 +114,10 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
             $conn->close();
             ?>
         </div>
-        <div class="nav-buttons">
+        <button type="submit" class="delete-button">選択した投稿を削除</button>
+</form>
+
+    <div class="nav-buttons">
         <a href="mainmenu.php" class="nav-button">戻る</a>
     </div>
     </div>
