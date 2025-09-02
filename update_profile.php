@@ -28,7 +28,7 @@ $stmt_get_avatar->bind_param("s", $username);
 $stmt_get_avatar->execute();
 $result_get_avatar = $stmt_get_avatar->get_result();
 $current_avatar_row = $result_get_avatar->fetch_assoc();
-$current_avatar_path = $current_avatar_row['avatar_path'];
+
 if ($current_avatar_row) {
     // データベースからプロフィール情報が取得できた場合
     $current_avatar_path = $current_avatar_row['avatar_path'];
@@ -64,7 +64,7 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
 }
 
 // データベースを更新
-$stmt_update = $conn->prepare("UPDATE profile SET self_introduction = ?, avatar_path = ? WHERE user_name = ?");
+$stmt_update = $conn->prepare("UPDATE profile_1 SET self_introduction = ?, avatar_path = ? WHERE user_name = ?");
 $stmt_update->bind_param("sss", $new_bio, $new_avatar_path, $username);
 
 if ($stmt_update->execute()) {
