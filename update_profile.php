@@ -29,6 +29,14 @@ $stmt_get_avatar->execute();
 $result_get_avatar = $stmt_get_avatar->get_result();
 $current_avatar_row = $result_get_avatar->fetch_assoc();
 $current_avatar_path = $current_avatar_row['avatar_path'];
+if ($current_avatar_row) {
+    // データベースからプロフィール情報が取得できた場合
+    $current_avatar_path = $current_avatar_row['avatar_path'];
+} else {
+    // プロフィール情報が存在しない場合、初期値をnullに設定
+    $current_avatar_path = null;
+}
+
 $stmt_get_avatar->close();
 
 // アバター画像がアップロードされた場合
