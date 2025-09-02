@@ -23,7 +23,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
         <header class="profile-header">
             <div class="profile-info">
                 <div class="profile-avatar-container">
-                    <img src="<?php echo htmlspecialchars(isset($profile_avatar_url) ? $profile_avatar_url : 'placeholder_avatar.jpg'); ?>" alt="アカウントアイコン" class="profile-avatar">
+                    <img src="<?php echo htmlspecialchars(isset($avatar_path) ? $avatar_path : 'placeholder_avatar.jpg'); ?>" alt="アカウントアイコン" class="profile-avatar">
                 </div>
                 <div class="profile-stats">
                     <h1><?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?></h1>
@@ -33,7 +33,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
                         <div><strong>300</strong> フォロー中</div>
                     </div>
                     <p class="profile-bio">
-                        <?php echo isset($profile_bio) ? $profile_bio : '自己紹介文が設定されていません。'; ?>
+                        <?php echo isset($self_introduction) ? $self_introduction : '自己紹介文が設定されていません。'; ?>
                     </p>
                     <a href="edit_profile.php" class="edit-profile-button">プロフィールを編集</a>
                 </div>
