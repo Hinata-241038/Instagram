@@ -36,6 +36,7 @@ if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
+$username = $_SESSION["username"];
 
             // データベース接続 (ここから下は変更なしでOK)
             $servername = "localhost";

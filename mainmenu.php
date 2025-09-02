@@ -5,6 +5,7 @@ if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit;
 }
+$username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html lang="ja">

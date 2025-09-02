@@ -6,22 +6,27 @@ $valid_username = "goto";
 $valid_password = "12341234";
 
 // ログイン処理
-// 1. POSTメソッドのスペルミスを修正
-if ($_SERVER["REQUEST_METHOD"]==="POST") {
-    // 2. $_POST変数のスペルミスを修正
-    $username = $_POST["username"]??"";
-    $password = $_POST["password"]??"";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $input_user = $_POST["username"] ?? "";
+    $input_pass = $_POST["password"] ?? "";
 
-    if ($username === $valid_username && $password === $valid_password) {
-        // セッションに保存して遷移
-        $_SESSION["user_id"] = 1;
-        $_SESSION["username"] = $valid_username;
+    // 仮のユーザー情報（ファイル内にベタ書き）
+    $users = [
+        "goto"     => "12341234",  // 固定ユーザー
+        "testuser" => "1234",      // テストユーザー
+        "admin"    => "adminpass"  // 管理者
+    ];
+
+    if (isset($users[$input_user]) && $users[$input_user] === $input_pass) {
+        // ログイン成功 → セッションに保存
+        $_SESSION["username"] = $input_user;
         header("Location: mainmenu.php");
         exit;
     } else {
         $error = "ユーザー名またはパスワードが違います。";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
