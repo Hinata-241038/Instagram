@@ -26,11 +26,13 @@ $caption = $_POST["caption"];
 // アップロードされたファイルの処理
 $target_dir = "uploads/"; // 画像を保存するディレクトリ
 $image_path = "";
+$upload_success = false;
+
 if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // ファイルのバリデーション (例: 画像ファイルのみ許可)
+    // ファイルのバリデーション (画像ファイルのみ許可)
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if ($check !== false) {
         // ディレクトリが存在しない場合は作成
@@ -40,6 +42,7 @@ if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
         // ファイルを移動
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $image_path = $target_file;
+            $upload_success = true;
         } else {
             echo "画像のアップロードに失敗しました。";
         }
@@ -49,23 +52,23 @@ if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
 }
 
 // データベースに投稿を保存
-if (!empty($image_path)) {
+if ($upload_success) {
     $stmt = $conn->prepare("INSERT INTO posts (user_id, image_path, caption, created_at) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iss", $user_id, $image_path, $caption);
 
     if ($stmt->execute()) {
-        echo "投稿が完了しました！";
+        $stmt->close();
+        $conn->close();
+        // 投稿成功後にプロフィール画面にリダイレクト
+        header("Location: plofile.php");
+        exit;
     } else {
         echo "投稿の保存に失敗しました: " . $stmt->error;
+        $stmt->close();
     }
-    $stmt->close();
 } else {
-    echo "画像が選択されていません。";
+    echo "画像が選択されていないか、アップロードに失敗しました。";
 }
 
 $conn->close();
-
-// 投稿後にメインメニューに戻る
-header("Location: mainmenu.php");
-exit;
 ?>
