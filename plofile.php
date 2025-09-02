@@ -42,10 +42,10 @@ $username = $_SESSION["username"];
             // データベース接続 (ここから下は変更なしでOK)
             $servername = "localhost";
             $password = "";
-            $username = "root"; 
+            $db_username = "root"; 
             $dbname = "user_information"; 
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($servername, $db_username, $password, $dbname);
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
