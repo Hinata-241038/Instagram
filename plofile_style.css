@@ -119,12 +119,18 @@ body {
     background-color: #0056b3;
 }
 
-/* チェックボックスが隠れていないか確認するためのCSS */
 .delete-checkbox {
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
+    /* 位置を絶対指定に変更 */
+    position: absolute;
+    /* 右上からの位置を調整 */
+    top: 10px;
+    right: 10px;
+    /* 他の要素の上に表示されるようにする */
+    z-index: 10;
+    /* スタイルを整えるための追加設定 */
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 
 
