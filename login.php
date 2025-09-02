@@ -10,13 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $input_user = $_POST["username"] ?? "";
     $input_pass = $_POST["password"] ?? "";
 
-    // 仮のユーザー情報（ファイル内にベタ書き）
-    $users = [
-        "goto"     => "12341234",  // 固定ユーザー
-        "testuser" => "1234",      // テストユーザー
-        "admin"    => "adminpass"  // 管理者
-    ];
-
     if (isset($users[$input_user]) && $users[$input_user] === $input_pass) {
         // ログイン成功 → セッションに保存
         $_SESSION["username"] = $input_user;
