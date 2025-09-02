@@ -27,7 +27,7 @@
             </div>
         </header>
 
-        <div class="profile-posts-grid">
+<div class="profile-posts-grid">
             <?php
             session_start(); // セッション開始
 
@@ -37,7 +37,8 @@ if (!isset($_SESSION["username"])) {
     exit;
 }
 $username = $_SESSION["username"];
-
+?>
+<?php
             // データベース接続 (ここから下は変更なしでOK)
             $servername = "localhost";
             $password = "";
