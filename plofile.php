@@ -35,6 +35,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
                     <p class="profile-bio">
                         <?php echo isset($profile_bio) ? $profile_bio : '自己紹介文が設定されていません。'; ?>
                     </p>
+                    <a href="edit_profile.php" class="edit-profile-button">プロフィールを編集</a>
                 </div>
             </div>
         </header>
