@@ -99,8 +99,9 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
                 while($row = $result->fetch_assoc()) {
                     echo "<div class='post-item'>";
                     // ★ チェックボックスを追加
-                    echo "<input type='checkbox' name='post_ids[]' value='" . $row['id'] . "' class='delete-checkbox'>";
                     echo "<img src='" . htmlspecialchars($row["image_path"]) . "' alt='投稿画像'>";
+                    echo "<input type='checkbox' name='post_ids[]' value='" . $row['id'] . "' class='delete-checkbox'>";
+                    
                     if (!empty($row["caption"])) {
                         echo "<div class='post-caption'>" . nl2br(htmlspecialchars($row["caption"])) . "</div>";
                     }
