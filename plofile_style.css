@@ -119,6 +119,14 @@ body {
     background-color: #0056b3;
 }
 
+/* チェックボックスが隠れていないか確認するためのCSS */
+.delete-checkbox {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+}
+
 
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
