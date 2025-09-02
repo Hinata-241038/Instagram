@@ -1,3 +1,15 @@
+
+            <?php
+            session_start(); // セッション開始
+
+            // ログインしていなければ login.php にリダイレクト
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit;
+}
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -28,16 +40,6 @@
         </header>
 
 <div class="profile-posts-grid">
-            <?php
-            session_start(); // セッション開始
-
-            // ログインしていなければ login.php にリダイレクト
-if (!isset($_SESSION["username"])) {
-    header("Location: login.php");
-    exit;
-}
-$username = $_SESSION["username"];
-?>
 <?php
             // データベース接続 (ここから下は変更なしでOK)
             $servername = "localhost";
