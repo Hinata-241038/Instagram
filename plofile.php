@@ -73,7 +73,7 @@ $user_id = $_SESSION["user_id"]; // セッションからuser_idを取得
 
             if ($result_profile->num_rows > 0) {
                 $profile_data = $result_profile->fetch_assoc();
-                $user_name = htmlspecialchars($profile_data['username']); 
+                $user_name = htmlspecialchars($profile_data['user_name']); 
                 $profile_bio = !empty($profile_data['self_introduction']) ? nl2br(htmlspecialchars($profile_data['self_introduction'])) : "自己紹介文が設定されていません。";
             }
             $stmt_profile->close();
