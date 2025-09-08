@@ -19,7 +19,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$new_self_introduction = $_POST['bio'];  // ★ 修正: bioをここでセット
+$new_self_introduction = $_POST['self_introduction'];  // ★ 修正: bioをここでセット
 $new_avatar_path = null;
 
 // 現在のプロフィール情報を取得
