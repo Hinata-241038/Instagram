@@ -25,7 +25,7 @@ $current_bio = "";
 $current_avatar_url = "placeholder_avatar.jpg";
 
 $stmt = $conn->prepare("SELECT self_introduction, avatar_path FROM profile_1 WHERE user_id = ?");
-$stmt->bind_param("s", $username);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
