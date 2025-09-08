@@ -21,17 +21,24 @@ $username = $_SESSION["username"];
 <div class="form-group">
 <textarea name="caption" placeholder="キャプションを入力..."></textarea>
 </div>
-<input type="file" name="image">
-<button type="submit" class="upload-button">投稿する</button>
+<label for="file-upload" class="menu-button">ファイルを選択</label>
+<input id="file-upload" type="file" name="image" style="display: none;">
+<span id="file-name" class="file-name">選択されていません</span>
+<button type="submit" class="menu-button">投稿する</button>
 </form>
 
 <!-- ナビゲーションボタン -->
     <div class="menu-buttons">
-        <a href="logout.php" class="menu-button">ログアウト</a>
-        
+        <a href="logout.php" class="menu-button">ログアウト</a>        
         <a href="plofile.php" class="menu-button">マイプロフィール</a>
     </div>
 
+<script>
+document.getElementById('file-upload').addEventListener('change', function() {
+const fileName = this.files[0] ? this.files[0].name : '選択されていません';
+document.getElementById('file-name').textContent = fileName;
+});
+</script>
 </div>
 </body>
 </html>
