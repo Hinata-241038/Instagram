@@ -1,21 +1,17 @@
 /* 全体のスタイル */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* よりモダンなフォント */
-    background-color: #2c2c2c; /* 黒っぽい背景 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    color: #f0f0f0; /* デフォルトの文字色を明るく */
+    background-color: #fff; 
+    background-image: url(gka.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
 /* ログインコンテナ */
 .login-container {
-    background-color: #28016f; /* コンテナの背景色を暗めに */
+    background-color: #6f3ed1; /* コンテナの背景色を暗めに */
     padding: 30px 40px;
     border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 8px 16px rgba(5, 1, 83, 0.4); /* 影を強調し、暗い背景に合わせる */
+    box-shadow: 0 8px 16px rgba(249, 249, 249, 0.933); /* 影を強調し、暗い背景に合わせる */
     width: 100%;
     max-width: 420px; /* 最大幅を少し広げる */
     box-sizing: border-box;
