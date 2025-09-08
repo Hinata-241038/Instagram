@@ -1,11 +1,19 @@
 /* 全体のスタイル */
 body {
-    background-color: #fff; 
-    background-image: url(gka.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* より多くの環境に対応したフォントスタック */
+    margin: 0; /* bodyのデフォルトマージンをリセット */
+    min-height: 100vh; /* 画面いっぱいに広がるように設定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    /* 背景画像の設定 */
+    background-image: url('gka.jpg');
+    background-size: cover; /* 画面全体に画像を広げ、トリミングしてフィットさせる */
+    background-repeat: no-repeat; /* 画像の繰り返しをオフにする */
+    background-position: center; /* 画像を中央に配置 */
+    background-attachment: fixed; /* ページをスクロールしても背景画像を固定する */
+}
 /* ログインコンテナ */
 .login-container {
     background-color: #6f3ed1; /* コンテナの背景色を暗めに */
