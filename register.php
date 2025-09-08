@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="register_style.css">
 </head>
 <body>
+    <div class="register-container">
     <h2>New user Register</h2>
 
     <?php if (!empty($message)): ?>
@@ -55,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <form action="register.php" method="post">
-        <div class="register-container">
+        <div class="form-group">
             <label for="username">ユーザー名:</label>
             <input type="text" id="username" name="username" required>
         </div>
