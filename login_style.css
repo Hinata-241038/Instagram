@@ -26,7 +26,8 @@ body {
     text-align: center;
     position: relative; /* エラーメッセージの位置指定のため */
     overflow: hidden; /* 子要素がはみ出さないように */
-    border: 1px solid #444; /* コンテナに薄いボーダーを追加 */
+    /* ここを修正しました */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* 白をベースに透明度20%のボーダー */
 }
 
 /* タイトル */
