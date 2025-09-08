@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="username">ユーザー名:</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <div class="register-container">
+        <div class="form-gruop">
             <label for="password">パスワード:</label>
             <input type="password" id="password" name="password" required>
         </div>
