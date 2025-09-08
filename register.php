@@ -55,11 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 
     <form action="register.php" method="post">
-        <div>
+        <div class="register-container">
             <label for="username">ユーザー名:</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <div>
+        <div class="register-container">
             <label for="password">パスワード:</label>
             <input type="password" id="password" name="password" required>
         </div>

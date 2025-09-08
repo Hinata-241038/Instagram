@@ -1,92 +1,187 @@
-/* 全体のスタイル設定 */
+/* 全体のスタイル */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #D3E0E9; /* 背景色を画像に合わせて修正 */
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* より多くの環境に対応したフォントスタック */
+    margin: 0; /* bodyのデフォルトマージンをリセット */
+    min-height: 100vh; /* 画面いっぱいに広がるように設定 */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
-/* フォーム全体を囲むコンテナ */
-.register-form {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* 背景画像の設定 */
+    background-image: url('gka.jpg');
+    background-size: cover; /* 画面全体に画像を広げ、トリミングしてフィットさせる */
+    background-repeat: no-repeat; /* 画像の繰り返しをオフにする */
+    background-position: center; /* 画像を中央に配置 */
+    background-attachment: fixed; /* ページをスクロールしても背景画像を固定する */
+}
+/* ログインコンテナ */
+.regiater-container {
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白で背景を透けさせる */
+    /* 背景をぼかすにはbackdrop-filterが必要 */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* Safari対応 */
+    
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 薄く透けるボーダー */
 }
 
+/* タイトル */
 h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 25px;
+    color: #4da6ff; /* 明るい青色に変更 */
+    margin-bottom: 35px;
+    font-size: 28px; /* フォントサイズを大きく */
+    font-weight: 700; /* 太字 */
 }
 
-/* メッセージ表示エリアのスタイル */
-.message {
-    color: #d9534f;
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-/* 各入力フィールドのグループ */
+/* フォームグループ */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* マージンを少し広げる */
+    text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 600;
+    margin-bottom: 10px; /* ラベルと入力欄の間隔を広げる */
+    color: #bbb; /* ラベルの色を明るめに */
+    font-weight: 600; /* 少し太字 */
+    font-size: 15px;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* ボタンを横並びにして、表示順を逆にするためのコンテナ */
-.button-container {
-    display: flex;
-    flex-direction: row-reverse; /* ボタンの順序を逆にする */
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-}
-
-/* 登録ボタンのスタイル */
-.register-button {
-    flex-grow: 1;
-    padding: 12px;
-    background-color: #5cb85c;
-    border: none;
-    border-radius: 4px;
-    color: white;
+/* 入力フィールド */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%; /* calc()ではなく100%に */
+    padding: 12px 15px; /* パディングを増やす */
+    border: 1px solid #ffffff; /* 暗い背景に合わせたボーダー */
+    background-color: #ffffff; /* 入力フィールドの背景色も暗く */
+    color: #f0f0f0; /* 入力文字色を明るく */
+    border-radius: 6px; /* 角を丸く */
     font-size: 16px;
-    font-weight: bold;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* ホバー・フォーカス時のアニメーション */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #4da6ff; /* フォーカス時に青色に */
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.25); /* フォーカス時のシャドウ */
+    outline: none; /* デフォルトのアウトラインを無効化 */
+}
+
+/* ボタングループ */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px; /* マージンを広げる */
+    gap: 15px; /* ボタン間の隙間 */
+}
+
+/* 共通ボタンのスタイル */
+.login-button,
+.register-button {
+    flex-grow: 1; /* ボタンが利用可能なスペースを均等に占めるように */
+    padding: 14px 25px; /* パディングを増やす */
+    border: none;
+    border-radius: 7px; /* 角を丸く */
+    font-size: 17px; /* フォントサイズを大きく */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* ホバー時のアニメーション */
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600; /* 太字 */
+}
+
+/* ログインボタン */
+.login-button {
+    background-color: #4da6ff; /* 明るい青色に変更 */
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #2b8add; /* ホバー時の色を少し濃く */
+    transform: translateY(-2px); /* 少し上に浮き上がる効果 */
+}
+
+/* 新規登録ボタン */
+.register-button {
+    background-color: #6c757d; /* 既存の色を維持、または好みに合わせて変更 */
+    color: white;
 }
 
 .register-button:hover {
-    background-color: #4cae4c;
+    background-color: #5a6268;
+    transform: translateY(-2px); /* 少し上に浮き上がる効果 */
 }
 
-/* 戻るボタンのスタイル */
-.back-link {
-    display: block;
-    text-align: center;
-    color: #337ab7;
+/* エラーメッセージのスタイル (機能追加) */
+.error-message {
+    color: #ff6b6b; /* 赤色を少し明るめに */
+    font-size: 14px;
+    margin-top: -15px; /* 入力欄との間隔を詰める */
+    margin-bottom: 15px;
+    text-align: left;
+    display: none; /* JavaScriptで表示/非表示を切り替える */
+    padding-left: 5px; /* 少し左にパディング */
+}
+
+/* 「パスワードを忘れた場合」リンク (機能追加) */
+.forgot-password {
+    text-align: right; /* 右寄せ */
+    margin-top: -10px; /* 上の要素との間隔を詰める */
+    margin-bottom: 20px; /* 下の要素との間隔 */
+}
+
+.forgot-password a {
+    color: #4da6ff; /* 明るい青色に変更 */
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    flex-grow: 1;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #2b8add; /* ホバー時の色を少し濃く */
+    text-decoration: underline;
+}
+
+/* レスポンシブ対応 (機能追加) */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 25px 30px;
+        margin: 20px; /* モバイルでの余白 */
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .button-group {
+        flex-direction: column; /* ボタンを縦に並べる */
+        gap: 10px; /* 縦方向の隙間 */
+    }
+
+    .login-button,
+    .register-button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
 }
