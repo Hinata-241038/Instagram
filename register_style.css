@@ -154,7 +154,7 @@ h2 {
 
 /* レスポンシブ対応 (機能追加) */
 @media (max-width: 600px) {
-    .login-container {
+    .register-container {
         padding: 25px 30px;
         margin: 20px; /* モバイルでの余白 */
     }

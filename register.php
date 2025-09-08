@@ -54,9 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (!empty($message)): ?>
         <p style="color: red;"><?php echo $message; ?></p>
     <?php endif; ?>
+    </div>
 
     <form action="register.php" method="post">
-    </div>
+
         <div class="form-group">
             <label for="username">ユーザー名:</label>
             <input type="text" id="username" name="username" required>
