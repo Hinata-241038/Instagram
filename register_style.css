@@ -1,94 +1,97 @@
 /* 全体のスタイル */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #CFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+ body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #e0f2fe; /* 淡い水色 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-/* フォーム全体を囲むコンテナ */
-.register-form {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-}
+        /* コンテナボックスのスタイル */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
 
-h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 25px;
-}
+        /* タイトルのスタイル */
+        .login-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a569c;
+            margin-bottom: 25px;
+        }
+        
+        /* フォームのスタイル */
+        .login-form div {
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-/* メッセージ表示エリアのスタイル */
-.message {
-    color: #d9534f;
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
+        /* ラベルのスタイル */
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
 
-/* 各入力フィールドのグループ */
-.form-group {
-    margin-bottom: 20px;
-}
+        /* 入力フィールドのスタイル */
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        
+        /* ボタンのコンテナスタイル */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
 
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 600;
-}
+        /* ボタン共通のスタイル */
+        .button-container button,
+        .button-container a {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
 
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+        /* ログインボタンのスタイル */
+        .button-container .login-btn {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
 
-/* ボタンのコンテナ */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-}
+        .button-container .login-btn:hover {
+            background-color: #0056b3;
+        }
 
-/* 登録ボタンのスタイル */
-.register-btn {
-    flex: 1;
-    padding: 12px;
-    background-color: #5cb85c;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
+        /* 新規登録ボタン（リンク）のスタイル */
+        .button-container .register-link {
+            background-color: #e9ecef;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
 
-.register-btn:hover {
-    background-color: #4cae4c;
-}
-
-/* 戻るリンクのスタイル */
-.back-link {
-    flex: 1;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    color: #337ab7;
-    font-weight: bold;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
+        .button-container .register-link:hover {
+            background-color: #cfd8dc;
+        }
