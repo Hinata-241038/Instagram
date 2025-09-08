@@ -45,6 +45,111 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>ユーザー登録</title>
+    <style>
+        /* 全体のスタイル */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #e0f2fe; /* 淡い水色 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* コンテナボックスのスタイル */
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* タイトルのスタイル */
+        .login-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a569c;
+            margin-bottom: 25px;
+        }
+        
+        /* フォームのスタイル */
+        .login-form div {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* ラベルのスタイル */
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* 入力フィールドのスタイル */
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        
+        /* ボタンのコンテナスタイル */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* ボタン共通のスタイル */
+        .button-container button,
+        .button-container a {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* 登録ボタンのスタイル */
+        .button-container button {
+            background-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 戻る（リンク）ボタンのスタイル */
+        .button-container a {
+            background-color: #e9ecef;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #cfd8dc;
+        }
+
+        /* メッセージ表示エリアのスタイル */
+        .message {
+            margin-bottom: 15px;
+            color: #dc3545;
+        }
+    </style>
 </head>
 <body>
     <h2>新規ユーザー登録</h2>
