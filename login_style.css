@@ -16,18 +16,21 @@ body {
 }
 /* ログインコンテナ */
 .login-container {
-    background-color: #6f3ed1; /* コンテナの背景色を暗めに */
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白で背景を透けさせる */
+    /* 背景をぼかすにはbackdrop-filterが必要 */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* Safari対応 */
+    
     padding: 30px 40px;
-    border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 8px 16px rgba(249, 249, 249, 0.933); /* 影を強調し、暗い背景に合わせる */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 420px; /* 最大幅を少し広げる */
+    max-width: 420px;
     box-sizing: border-box;
     text-align: center;
-    position: relative; /* エラーメッセージの位置指定のため */
-    overflow: hidden; /* 子要素がはみ出さないように */
-    /* ここを修正しました */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* 白をベースに透明度20%のボーダー */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 薄く透けるボーダー */
 }
 
 /* タイトル */
@@ -57,8 +60,8 @@ h2 {
 .form-group input[type="password"] {
     width: 100%; /* calc()ではなく100%に */
     padding: 12px 15px; /* パディングを増やす */
-    border: 1px solid #555; /* 暗い背景に合わせたボーダー */
-    background-color: #3a3a3a; /* 入力フィールドの背景色も暗く */
+    border: 1px solid #ffffff; /* 暗い背景に合わせたボーダー */
+    background-color: #ffffff; /* 入力フィールドの背景色も暗く */
     color: #f0f0f0; /* 入力文字色を明るく */
     border-radius: 6px; /* 角を丸く */
     font-size: 16px;
