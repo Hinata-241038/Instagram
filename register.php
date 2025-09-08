@@ -64,5 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <button type="submit">登録</button>
     </form>
+
+    <div style="margin-top: 20px;">
+        <a href="login.php">戻る</a>
+    </div>
 </body>
 </html>
