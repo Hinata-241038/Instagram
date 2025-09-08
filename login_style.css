@@ -1,7 +1,7 @@
 /* 全体のスタイル */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* よりモダンなフォント */
-    background-color: #1a1a1a; /* 黒っぽい背景 */
+    background-color: #2c2c2c; /* 黒っぽい背景 */
     display: flex;
     justify-content: center;
     align-items: center;
