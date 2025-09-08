@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mydb";
+$dbname = "user_information";
 
 $message = ""; // ユーザーへのメッセージを保存する変数
 
