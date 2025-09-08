@@ -58,8 +58,8 @@ $conn->close();
                 <input type="file" name="avatar" id="avatar">
             </div>
             <div class="form-group">
-                <label for="bio">自己紹介文:</label>
-                <textarea name="bio" id="bio" rows="5"><?= $current_bio ?></textarea>
+                <label for="self_introduction">自己紹介文:</label>
+                <textarea name="self_introduction" id="self_introduction" rows="5"><?= $current_bio ?></textarea>
             </div>
             <button type="submit" class="update-button">更新</button>
         </form>
