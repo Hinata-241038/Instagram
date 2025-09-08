@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <h2>新規ユーザー登録</h2>
+    <h2>New user Register</h2>
 
     <?php if (!empty($message)): ?>
         <p style="color: red;"><?php echo $message; ?></p>
