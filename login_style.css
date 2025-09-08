@@ -1,32 +1,33 @@
 /* 全体のスタイル */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* よりモダンなフォント */
-    background-color: #e0f7fa; /* 明るい水色の背景 */
+    background-color: #1a1a1a; /* 黒っぽい背景 */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    color: #333; /* デフォルトの文字色 */
+    color: #f0f0f0; /* デフォルトの文字色を明るく */
 }
 
 /* ログインコンテナ */
 .login-container {
-    background-color: #ffffff;
+    background-color: #2c2c2c; /* コンテナの背景色を暗めに */
     padding: 30px 40px;
     border-radius: 10px; /* 角を丸くする */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 影を強調 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* 影を強調し、暗い背景に合わせる */
     width: 100%;
     max-width: 420px; /* 最大幅を少し広げる */
     box-sizing: border-box;
     text-align: center;
     position: relative; /* エラーメッセージの位置指定のため */
     overflow: hidden; /* 子要素がはみ出さないように */
+    border: 1px solid #444; /* コンテナに薄いボーダーを追加 */
 }
 
 /* タイトル */
 h2 {
-    color: #0056b3; /* ログインボタンの色と合わせる */
+    color: #4da6ff; /* 明るい青色に変更 */
     margin-bottom: 35px;
     font-size: 28px; /* フォントサイズを大きく */
     font-weight: 700; /* 太字 */
@@ -41,7 +42,7 @@ h2 {
 .form-group label {
     display: block;
     margin-bottom: 10px; /* ラベルと入力欄の間隔を広げる */
-    color: #444;
+    color: #bbb; /* ラベルの色を明るめに */
     font-weight: 600; /* 少し太字 */
     font-size: 15px;
 }
@@ -51,7 +52,9 @@ h2 {
 .form-group input[type="password"] {
     width: 100%; /* calc()ではなく100%に */
     padding: 12px 15px; /* パディングを増やす */
-    border: 1px solid #cceeff; /* 薄い青のボーダー */
+    border: 1px solid #555; /* 暗い背景に合わせたボーダー */
+    background-color: #3a3a3a; /* 入力フィールドの背景色も暗く */
+    color: #f0f0f0; /* 入力文字色を明るく */
     border-radius: 6px; /* 角を丸く */
     font-size: 16px;
     box-sizing: border-box;
@@ -60,8 +63,8 @@ h2 {
 
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus {
-    border-color: #007bff; /* フォーカス時に青色に */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* フォーカス時のシャドウ */
+    border-color: #4da6ff; /* フォーカス時に青色に */
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.25); /* フォーカス時のシャドウ */
     outline: none; /* デフォルトのアウトラインを無効化 */
 }
 
@@ -91,18 +94,18 @@ h2 {
 
 /* ログインボタン */
 .login-button {
-    background-color: #007bff;
+    background-color: #4da6ff; /* 明るい青色に変更 */
     color: white;
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background-color: #2b8add; /* ホバー時の色を少し濃く */
     transform: translateY(-2px); /* 少し上に浮き上がる効果 */
 }
 
 /* 新規登録ボタン */
 .register-button {
-    background-color: #6c757d;
+    background-color: #6c757d; /* 既存の色を維持、または好みに合わせて変更 */
     color: white;
 }
 
@@ -113,7 +116,7 @@ h2 {
 
 /* エラーメッセージのスタイル (機能追加) */
 .error-message {
-    color: #dc3545; /* 赤色 */
+    color: #ff6b6b; /* 赤色を少し明るめに */
     font-size: 14px;
     margin-top: -15px; /* 入力欄との間隔を詰める */
     margin-bottom: 15px;
@@ -130,14 +133,14 @@ h2 {
 }
 
 .forgot-password a {
-    color: #007bff;
+    color: #4da6ff; /* 明るい青色に変更 */
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s ease;
 }
 
 .forgot-password a:hover {
-    color: #0056b3;
+    color: #2b8add; /* ホバー時の色を少し濃く */
     text-decoration: underline;
 }
 
