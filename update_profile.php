@@ -76,8 +76,8 @@ if ($profile_exists) {
     $stmt_update->close();
 } else {
     // 新規作成
-    $stmt_insert = $conn->prepare("INSERT INTO profile_1 (user_id, self_introduction, avatar_path) VALUES (?, ?, ?)");
-    $stmt_insert->bind_param("iss", $user_id, $new_self_introduction, $new_avatar_path);
+    $stmt_insert = $conn->prepare("INSERT INTO profile_1 (user_id, user_name, self_introduction, avatar_path) VALUES (?, ?, ?, ?)");
+    $stmt_insert->bind_param("isss", $user_id, $user_name, $new_self_introduction, $new_avatar_path);
 
     if ($stmt_insert->execute()) {
         header("Location: plofile.php");
