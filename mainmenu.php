@@ -25,7 +25,6 @@ $username = $_SESSION["username"];
 <label for="file-upload" class="menu-button">ファイルを選択</label>
 <input id="file-upload" type="file" name="image" style="display: none;">
 <button type="submit" class="menu-button">投稿する</button>
-<div class="flex-buttons">
 </div>
 <span id="file-name" class="file-name">選択されていません</span>
 </form>

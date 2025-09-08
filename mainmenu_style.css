@@ -34,14 +34,15 @@ h1 {
 
 .flex-buttons {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
     gap: 15px;
-    margin-bottom: 20px;
 }
 
 .file-name {
     display: block;
     margin-top: 15px;
-    margin-bottom: 15px; /* スペースを追加 */
+    margin-bottom: 25px; /* スペースを追加 */
     font-size: 14px;
     color: #8e8e8e;
     text-align: center;
@@ -64,10 +65,10 @@ textarea::placeholder {
 }
 
 .menu-buttons {
-    margin-top: 20px;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
     gap: 15px;
-    justify-content: center;
 }
 
 .menu-button {
