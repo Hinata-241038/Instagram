@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $current_bio = htmlspecialchars($row['self_introduction']);
     if (!empty($row['avatar_path'])) {
-        $current_avatar_url = htmlspecialchars($row['avatar_path']);
+        $current_avatar_url ="avatars/" . htmlspecialchars($row['avatar_path']);
     }
 }
 $stmt->close();
