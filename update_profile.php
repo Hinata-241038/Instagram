@@ -19,12 +19,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$new_bio = $_POST['bio'];
-$new_avatar_path = null; // 初期値をnullに設定
+$new_self_introduction = $_POST['bio'];  // ★ 修正: bioをここでセット
+$new_avatar_path = null;
 
-// 現在のプロフィール情報を取得して、古いアバターパスを確認
-$stmt_get_profile = $conn->prepare("SELECT id, avatar_path FROM profile_1 WHERE id = ?");
-$stmt_get_profile->bind_param("s", $username);
+// 現在のプロフィール情報を取得
+$stmt_get_profile = $conn->prepare("SELECT id, avatar_path FROM profile_1 WHERE user_id = ?");
+$stmt_get_profile->bind_param("i", $user_id);   // ★ 修正: user_idで検索
 $stmt_get_profile->execute();
 $result_get_profile = $stmt_get_profile->get_result();
 $current_profile_row = $result_get_profile->fetch_assoc();
@@ -58,19 +58,14 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
         exit;
     }
 } else {
-    // 新しい画像がアップロードされなかった場合、既存のパスを使用
-    // ★ 修正箇所
-    $new_avatar_path = $current_avatar_path;
-    if ($new_avatar_path === null) {
-        $new_avatar_path = '';
-    }
+    $new_avatar_path = $current_avatar_path ?? '';
 }
 
-// データベースにプロフィール情報を保存または更新
+// データベースにプロフィールを保存/更新
 if ($profile_exists) {
-    // 既存のプロフィールを更新
-    $stmt_update = $conn->prepare("UPDATE profile_1 SET self_introduction = ?, avatar_path = ? WHERE id = ?");
-    $stmt_update->bind_param("sss", $new_self_introduction, $new_avatar_path, $id);
+    // 更新
+    $stmt_update = $conn->prepare("UPDATE profile_1 SET self_introduction = ?, avatar_path = ? WHERE user_id = ?");
+    $stmt_update->bind_param("ssi", $new_self_introduction, $new_avatar_path, $user_id);
 
     if ($stmt_update->execute()) {
         header("Location: plofile.php");
@@ -80,9 +75,9 @@ if ($profile_exists) {
     }
     $stmt_update->close();
 } else {
-    // プロフィールを新規作成
-    $stmt_insert = $conn->prepare("INSERT INTO profile_1 (user_id, id, self_introduction, avatar_path) VALUES (?, ?, ?, ?)");
-    $stmt_insert->bind_param("isss", $user_id, $id, $new_self_introduction, $new_avatar_path);
+    // 新規作成
+    $stmt_insert = $conn->prepare("INSERT INTO profile_1 (user_id, self_introduction, avatar_path) VALUES (?, ?, ?)");
+    $stmt_insert->bind_param("iss", $user_id, $new_self_introduction, $new_avatar_path);
 
     if ($stmt_insert->execute()) {
         header("Location: plofile.php");
