@@ -45,29 +45,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>ユーザー登録</title>
-    <link rel="stylesheet" href="register_style.css">
+
 </head>
 <body>
-    <div class="register-container">
     <h2>New user Register</h2>
 
     <?php if (!empty($message)): ?>
         <p style="color: red;"><?php echo $message; ?></p>
     <?php endif; ?>
-    </div>
 
     <form action="register.php" method="post">
-
-        <div class="form-group">
+        <div>
             <label for="username">ユーザー名:</label>
             <input type="text" id="username" name="username" required>
-    </div>
-        <div class="form-gruop">
+        </div>
+        <div>
             <label for="password">パスワード:</label>
             <input type="password" id="password" name="password" required>
         </div>
         <button type="submit">登録</button>
-    </div>
     </form>
 
     <div style="margin-top: 20px;">
