@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
 </head>
 <body>
     <div class="login-container">
-        <h2>ログイン</h2>
+        <h2>イソフ、夕々”ラム</h2>
         <form method="post">
             <div class="form-group">
         <label>ユーザー名</label>
