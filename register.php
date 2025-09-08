@@ -70,5 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div style="margin-top: 20px;">
         <a href="login.php">戻る</a>
     </div>
+    </div>
 </body>
 </html>
