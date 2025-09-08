@@ -32,6 +32,12 @@ h1 {
     text-align: left;
 }
 
+.flex-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 .file-name {
     display: block;
     margin-top: 10px;
