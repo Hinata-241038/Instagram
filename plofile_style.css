@@ -133,25 +133,7 @@ body {
     cursor: pointer;
 }
 
-/* プロフィール編集ボタン */
-.edit-profile-button {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #f5f5f5;
-    color: #333;
-    border: 1px solid #dbdbdb;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
 
-.edit-profile-button:hover {
-    background-color: #e0e0e0;
-}
 
 /* 編集フォームのスタイル */
 .form-group {

@@ -81,7 +81,7 @@ $result = $stmt_posts->get_result();
                     <p class="profile-bio">
                         <?php echo $self_introduction; ?>
                     </p>
-                    <a href="edit_profile.php" class="edit-profile-button nav-button">プロフィールを編集</a>
+                    <a href="#" class="nav-button">プロフィールを編集</a>
                 </div>
             </div>
         </header>
