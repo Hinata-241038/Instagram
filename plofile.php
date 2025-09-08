@@ -111,6 +111,8 @@ $result = $stmt_posts->get_result();
         </form>
 
         <div class="nav-buttons">
+            <a href="edit_profile.php" class="edit-profile-button nav-button">プロフィールを編集</a>
+            <button type="submit" class="delete-button nav-button">選択した投稿を削除</button>
             <a href="mainmenu.php" class="nav-button">戻る</a>
         </div>
     </div>
