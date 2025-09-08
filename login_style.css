@@ -1,9 +1,13 @@
+body {
+    background-color: #f0f2f5; /* 全体の背景色を少し明るく */
+}
+
 .login-container {
-    background-color: #2c2c2c; /* Darker background for contrast */
-    border-radius: 10px; /* Slightly more rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* More prominent shadow for depth */
-    padding: 30px; /* Increased padding */
-    width: 350px; /* Slightly wider */
+    background-color: #ffffff; /* ログインフォームの背景色を白に変更 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 白背景に合うように影を調整 */
+    padding: 30px;
+    width: 350px;
     max-width: 90%;
     text-align: center;
     position: absolute;
@@ -13,50 +17,61 @@
 }
 
 .login-title {
-    color: #4da6ff; /* Brighter blue for the title */
-    font-size: 28px; /* Larger title font */
-    margin-bottom: 30px; /* More space below title */
-    font-weight: bold; /* Bold title */
-    letter-spacing: 1px; /* Slightly more spaced letters */
+    color: #1a73e8; /* タイトル色を青に維持 */
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
+/* ユーザー名とパスワードのラベル */
+.login-container label {
+    color: #333333; /* ラベルの文字色を濃いグレーに */
+    display: block; /* ラベルを独立した行に表示 */
+    text-align: left; /* 左寄せ */
+    margin-bottom: 8px; /* 入力フィールドとの間にスペース */
+    font-size: 15px; /* フォントサイズ調整 */
+    font-weight: bold; /* 太字 */
+}
+
+
 .input-field {
-    background-color: #3a3a3a; /* Lighter dark background for input fields */
-    border: 1px solid #555; /* Slightly visible border */
+    background-color: #f5f5f5; /* 入力フィールドの背景色を明るいグレーに */
+    border: 1px solid #cccccc; /* 枠線の色を調整 */
     border-radius: 5px;
-    color: #eee; /* Lighter text color for input */
-    padding: 15px; /* Increased padding in input fields */
-    margin-bottom: 20px; /* More space between input fields */
-    width: calc(100% - 30px); /* Adjust width for padding */
-    font-size: 16px; /* Larger font size in input */
+    color: #333333; /* 入力文字色を濃いグレーに */
+    padding: 15px;
+    margin-bottom: 20px;
+    width: calc(100% - 30px);
+    font-size: 16px;
 }
 
 .input-field::placeholder {
-    color: #aaa; /* Lighter placeholder text */
+    color: #aaaaaa; /* プレースホルダーの色を調整 */
 }
 
 .login-button {
-    background-color: #1a73e8; /* Google's blue for login button */
+    background-color: #1a73e8;
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 15px 25px; /* More padding for buttons */
-    font-size: 18px; /* Larger button font */
+    padding: 15px 25px;
+    font-size: 18px;
     cursor: pointer;
-    margin-top: 10px; /* Space above buttons */
-    margin-right: 15px; /* Space between buttons */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-top: 10px;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
 }
 
 .login-button:hover {
-    background-color: #1558b5; /* Darker blue on hover */
+    background-color: #1558b5;
 }
 
 .signup-button {
-    background-color: #555; /* Darker grey for signup button */
+    background-color: #e0e0e0; /* 新規登録ボタンの背景色を明るいグレーに */
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #333333; /* 新規登録ボタンの文字色を濃いグレーに */
     padding: 15px 25px;
     font-size: 18px;
     cursor: pointer;
@@ -65,5 +80,5 @@
 }
 
 .signup-button:hover {
-    background-color: #777; /* Lighter grey on hover */
+    background-color: #cccccc; /* ホバー時の色を調整 */
 }
